@@ -1,0 +1,10 @@
+/* Barra de rolagem fina p/ navegadores baseados no WebKit (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: rgb(230, 230, 230);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #a5a5a5;
+    border-radius: 4px;
+  }
