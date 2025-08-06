@@ -103,3 +103,19 @@ Table HistoricoItemSolicitacao {
     preco_total_item NUMERIC(10, 2)
     data_modificacao TIMESTAMP [not null, default: `CURRENT_TIMESTAMP`]
 }
+
+TABLE EmailLog {
+    id SERIAL [PRIMARY KEY]
+    id_solicitacao INTEGER [not null, ref: > Solicitacao.id]
+    destinatario VARCHAR(255)
+    assunto VARCHAR(255)
+    corpo TEXT
+    tipo VARCHAR(50)
+    tentativas INTEGER [note: 'DEFAULT 0']
+    enviado BOOLEAN [note: 'DEFAULT FALSE']
+    ultima_tentativa TIMESTAMP
+    criado_em TIMESTAMP [note: 'DEFAULT NOW()']
+    sucesso boolean [note: 'DEFAULT FALSE']
+    erro text
+    data_envio timestamp
+}
