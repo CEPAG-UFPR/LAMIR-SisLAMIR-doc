@@ -119,3 +119,13 @@ TABLE EmailLog {
     erro text
     data_envio timestamp
 }
+
+Table AmostraMetodoPermitido {
+    id SERIAL [pk]
+    id_tipo_amostra INT [not null, ref: > TipoAmostra.id, unique]
+    id_analise INT [not null, ref: > Analise.id, unique]
+    permitido BOOLEAN [not null, default: false]
+    created_at TIMESTAMP [default: `CURRENT_TIMESTAMP`]
+    updated_at TIMESTAMP [default: `CURRENT_TIMESTAMP`]
+    Note: 'Unique constraint on (id_tipo_amostra, id_analise)'
+}
