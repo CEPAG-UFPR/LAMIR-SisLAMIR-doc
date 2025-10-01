@@ -64,6 +64,26 @@ Table Solicitacao {
     subtotal NUMERIC(10, 2)
     desconto FLOAT
     total NUMERIC(10, 2)
+    ex_razao_social VARCHAR(255)
+    ex_cnpj_cpf VARCHAR(20)
+    ex_data_nascimento DATE
+    ex_inscricao_estadual_rg VARCHAR(50)
+    ex_inscricao_municipal VARCHAR(50)
+    ex_endereco VARCHAR(255)
+    ex_numero VARCHAR(10)
+    ex_complemento VARCHAR(100)
+    ex_bairro VARCHAR(100)
+    ex_cidade VARCHAR(100)
+    ex_uf CHAR(2)
+    ex_cep VARCHAR(20)
+    ex_pessoa_contato_financeiro VARCHAR(100)
+    ex_telefone_financeiro VARCHAR(20)
+    ex_email_financeiro VARCHAR(255)
+    ex_pessoa_contato_certificado VARCHAR(100)
+    ex_telefone_certificado VARCHAR(20)
+    ex_email_certificado VARCHAR(255)
+    ex_info_adicionais_certificado TEXT
+    ex_solicitante VARCHAR(100)
 }
 
 Table Direcao {
