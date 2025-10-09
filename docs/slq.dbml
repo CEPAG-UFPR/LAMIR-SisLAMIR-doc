@@ -65,9 +65,11 @@ Table Solicitacao {
     desconto FLOAT
     total NUMERIC(10, 2)
     ex_razao_social VARCHAR(255)
-    ex_cnpj_cpf VARCHAR(20)
+    ex_cpf VARCHAR(20)
+    ex_cnpj VARCHAR(20)
     ex_data_nascimento DATE
-    ex_inscricao_estadual_rg VARCHAR(50)
+    ex_rg VARCHAR(50)
+    ex_inscricao_estadual VARCHAR(50)
     ex_inscricao_municipal VARCHAR(50)
     ex_endereco VARCHAR(255)
     ex_numero VARCHAR(10)
