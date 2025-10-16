@@ -53,7 +53,7 @@ Table Solicitacao {
     status VARCHAR(50) [not null]
     data_status TIMESTAMP [not null]
     data_solicitacao TIMESTAMP [not null]
-    confirmacao_orientador BOOLEAN [not null]
+    confirmacao_orientador BOOLEAN
     data_confirmacao_orientador DATE 
     confirmacao_lamir BOOLEAN [not null]
     data_confirmacao_lamir DATE
@@ -150,4 +150,32 @@ Table AmostraMetodoPermitido {
     created_at TIMESTAMP [default: `CURRENT_TIMESTAMP`]
     updated_at TIMESTAMP [default: `CURRENT_TIMESTAMP`]
     Note: 'Unique constraint on (id_tipo_amostra, id_analise)'
+}
+
+Enum tipo_resposta_seguranca {
+  Sim
+  Nao
+  "Nao Tenho Certeza" // Aspas são usadas por causa do espaço no nome
+}
+
+Table UnidadeAmostra {
+  id SERIAL [pk]
+  id_item_solicitacao INT [not null, ref: > ItemSolicitacao.id]
+  numero_sequencial INT [not null, note: 'Número sequencial da amostra dentro do item (ex: 1 de 5)']
+  identificacao_amostra VARCHAR(100) [not null, note: 'Código ou nome único dado pelo solicitante para esta amostra']
+  
+  // Campos descritivos
+  origem_amostra VARCHAR(500)
+  componentes_principais VARCHAR(300)
+  
+  // --- Questionário de Segurança da Amostra ---
+  seg_atividade_radioativa tipo_resposta_seguranca [not null]
+  seg_possui_amonia tipo_resposta_seguranca [not null]
+  seg_libera_gas_sulfidrico tipo_resposta_seguranca [not null]
+  seg_possui_chumbo tipo_resposta_seguranca [not null]
+  seg_possui_mercurio tipo_resposta_seguranca [not null]
+  seg_risco_biologico tipo_resposta_seguranca [not null]
+  seg_risco_quimico tipo_resposta_seguranca [not null]
+  seg_material_inflamavel tipo_resposta_seguranca [not null]
+  seg_observacoes TEXT [note: 'Campo para observações adicionais de segurança']
 }
